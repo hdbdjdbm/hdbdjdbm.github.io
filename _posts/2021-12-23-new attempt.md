@@ -14,7 +14,7 @@ tags:
 
 第一篇blog献给踏入搭建博客的缺德河流。
 
-首先要说，本篇文章适合人群：对Github了解不甚深的人。如果你掌握git，知道仓库是什么，会写网站，以下文章或许更适合你：
+首先要说明本篇文章适合人群：对Github了解不甚深的人。如果你掌握Git，知道仓库是什么，会写网站，以下文章或许更适合你：
 
 
 - [使用 github + jekyll 搭建个人博客](https://www.cnblogs.com/wangfupeng1988/p/5702324.html)
@@ -22,40 +22,50 @@ tags:
 - [Github+Jekyll搭建个人博客](https://blog.csdn.net/White_Idiot/article/details/69397224/)
 
 
-在写blog的时候会试图叙述清楚整个操作流程，如果有幸运观众看到了这里，就请你跟我做起来。21世纪人人都应该有blog，没有blog的人滚出🌏！
+在写blog的时候试图叙述清楚整个操作流程，如果有幸运观众看到了这里，就请你跟我做起来。21世纪人人都应该有blog，没有blog的人滚出🌏！(夸张手法)
 
 
 # 背景知识
 
-### Github，Github Pages，Repository，Fork.
-谷歌学术的引言是：站在巨人的肩膀上。Github在代码领域就是这个巨人。说到这里，穿插一个小故事，因为和故事中另一个主角已经绝交，担心以后忘记。我在申请期间写文书的时候发现很多同学不愿意分享自己的文书，郁闷之际和朋友说起这件事并发表：**获得知识的途径不应该有壁垒**，并说出：我要创建一个共享文书的网站。朋友对此持反对意见并表示：我也不会分享自己的文书。当知道他的文书值8万的时候我表示理解，并更改了自己的观点：**获得知识的途径不应该有很强壁垒**。或许当大多数人能分辨出“我在普林斯顿上课”和“我上过普林斯顿的公开课”的区别，强字就可以去掉了。
+## Github，Github Pages，Git，Repository，Fork，jekyll，Markdown.
 
-[Github Pages](https://pages.github.com/)是一个静态网站托管服务，我理解的是可以通过这个服务，提交代码生成网站。
+### Github
+谷歌学术的引言是：“Stand on the shoulders of giants”。Github就是给巨人加了个垫肩，让人站的比较稳。说到这里，穿插一个小故事，因为和故事中另一个主角已经绝交，担心以后忘记。我在申请期间写文书的时候发现很多同学不愿意分享自己的文书，郁闷之际和朋友说起这件事并发表：**获得知识的途径不应该有壁垒**，并说出：我要创建一个共享文书的网站。朋友对此持反对意见并表示：我也不会分享自己的文书。当知道他的文书价值8万的时候我表示理解，并更改了自己的观点：**获得知识的途径不应该有很强壁垒**。或许当大多数人能分辨出“我在普林斯顿上课”和“我上过普林斯顿的公开课”的区别，强字就可以去掉了。
 
-Repository：中文翻译为仓库，可以理解为项目，类比为文件夹。
-
-Fork：学习是站在巨人的肩膀上，创新就是加入自己的修改。Fork他人的项目就是基于他人的代码加入自己的coding。
-
-### jekyll
-类比word template,不用学习HTML的语言，只需会打字，Jekyll负责转换。
-
-### Markdown
-排版工具。和LaTeX无直接关系。目前 Markdown 能做的 LaTeX 都可以做到；LaTeX 能做的 Markdown 不一定能做到。
+### Github Pages
+Github Pages是一个静态网站托管服务，我理解的是可以通过这个服务，提交代码生成网站。
 
 ### Git
-稀里糊涂在UCB学了一段时间的Git。简单来说就是一些操作命令。
+官方：Git是一个免费、开源的分布式版本控制系统。
+
+我眼里的Git:一些操作命令。
+
+### Repository
+中文翻译为仓库，可以理解为项目，类比为文件夹。
+
+### Fork
+学习是站在巨人的肩膀上，创新就是加入自己的修改。Fork他人的项目就是基于他人的代码加入自己的coding。(本土🐕今天才知道是什么)
+
+### jekyll
+类比word template,不用学习HTML，只需会打字，Jekyll负责转换。
+
+### Markdown
+官方：排版工具
+
+我眼里的Markdown: 逊于LaTeX的排版工具。
+
+
 
 # 流程
 
-更新博客的流程可以归纳为：本地写markdown，然后push到github，更新博客。
+创造的关键事件有：创建Github项目；安装jekyll；个性化博客；提交到Github。
 
-所以关键事件有：创建github项目；安装 jekyll；个性化博客；提交到github。
-
+更新博客的流程可以归纳为：本地写Markdown，然后push到Github。
 
 
 **① 创建github项目**
 
-全程copy官网，官网链接在上。
+全程copy官网[Github Pages](https://pages.github.com/)。除了官网，还要感谢王老板的帮助。
 
 新建一个仓库，命名为`github用户名.github.io`
 
@@ -118,15 +128,16 @@ bundle exec jekyll serve
 
 **③ 个性化博客**
 
-此时就可以随意发挥了。可以在hekyll官网或者github搜索模板。我使用了[huxblog-boilerplate](https://github.com/Huxpro/huxblog-boilerplate)的模板，如下
+此时就可以随意发挥了。可以在jekyll官网或者Github搜索模板。我使用了[huxblog-boilerplate](https://github.com/Huxpro/huxblog-boilerplate)的模板，如下
 
 ![image-8](https://pic.imgdb.cn/item/61c46ab62ab3f51d91a781b1.png)
 
-我也想fork但是只会下载到本地更改_config等文件。
+可以fork也可以下载到本地更改_config等文件。此处非常感谢网友[Ye yuan](https://leyuanheart.github.io/)。(虽然网友并不知情就是了，但这就是开源世界的美好！)
 
 **④ 提交到github**
 
-到这里第1步的
+cd到需要提交的目录下，执行：
+
 ```bash
 $ git add .
 $ git commit -m "statement"   //此处statement填写此次提交修改的内容，作为日后查阅
