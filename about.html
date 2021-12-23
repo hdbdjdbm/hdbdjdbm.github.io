@@ -1,0 +1,130 @@
+---
+layout: page
+title: "About"
+description: "欢迎参观"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<!-- Language Selector -->
+<!-- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select> -->
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+
+    <!--copied from markdown -->
+    <blockquote><p>正在踏入下一条缺德河流。</p></blockquote>
+
+    <p>想到这里是about板块，飞速打开百度网盘找到不同版本的“致20xx年的自己”，以便更好地了解自己到底是谁。</p>
+	<p>自我意识觉醒时期很容易说出：“主，不在乎！”。所以我每天都在尽量把“我在乎”这三个字刻在脑门上。</p>
+    <p>常言道，失败是成功之母。</p>
+    <p>小冯道，失败不是成功之母，总结才是。</p>
+    <p>但倒也不是说我要成功的意思。</p>
+    <p>每次遇到疑惑上网搜到解答的时候，我真的想顺着网线找到网友说声谢谢。</p>
+    <p>总结来说，这里是一个普通人的生命探索blog，定期更新生命新(缺德的)发现。如果这些缺德的发现能帮助到你的话那就更好了^^</p>
+    <p>最后，希望自己在踏入下一条缺德河流的时候能拥有生活。</p>
+
+    
+
+    <p></p>
+    
+    <!-- <h5>Talks</h5> -->
+
+    <!-- <ul> -->
+        <!-- <li><a href="https://github.com">GitHub</a></li> -->
+        <!-- <li><a href="http://jekyll.com.cn/">jekyll</a></li> -->
+        <!-- <li><a href="https://analytics.google.com/analytics">Google Analytics</a></li> -->
+    <!-- </ul> -->
+<!-- </div> -->
+
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+<!-- Gitalk 评论 start  -->
+{% if site.gitalk.enable %}
+<!-- Gitalk link  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+    clientID: '{{site.gitalk.clientID}}',
+    clientSecret: '{{site.gitalk.clientSecret}}',
+    repo: '{{site.gitalk.repo}}',
+    owner: '{{site.gitalk.owner}}',
+    admin: ['{{site.gitalk.admin}}'],
+    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+    id: 'about',
+    });
+    gitalk.render('gitalk-container');
+</script>
+{% endif %}
+<!-- Gitalk end -->
+
+ <!-- disqus 评论框 start  -->
+{% if site.disqus.enable %}
+
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus.username}}";
+    var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
+

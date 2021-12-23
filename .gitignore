@@ -1,5 +1,7 @@
 _site
-.sass-cache
-.jekyll-metadata
-node_modules
-Gemfile.lock
+.jekyll-cache
+img/githubpages_jekyll
+img/KM_algorithm
+img/RL
+img/deep_learning_from_scratch
+_drafts

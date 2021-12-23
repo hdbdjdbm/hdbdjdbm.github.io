@@ -1,65 +1,105 @@
-# Site
-name: 'Mundana'
-description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
-baseurl: '/mundana-theme-jekyll'
-disqus: 'demowebsite'
-email: 'wowthemesnet@gmail.com'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+# Site settings
+title: hdbdjdbm's blog                          # 你博客的标题
+SEOTitle: hdbdjdbm的博客 | My Blog                # 显示在浏览器上搜索的时候显示的标题      
+header-img: img/home-bg.jpg                    # 显示在首页的背景图片
+email: hdbdjdbmm@gmail.com
+description: "can not find the pages"             # 说实话我还没发现这是用在哪的。。。
+keyword: "我的博客"                         # 貌似也没什么用
+url: "http://hdbdjdbm.github.io"          # your host, for absolute URL
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+github_repo: "https://github.com/hdbdjdbm/hdbdjdbm.github.io.git" # you code repository
 
-include: ["_pages"]
-permalink: /:title/
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "正在迈入下亿条缺德河流"
+sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-# Plugins
-plugins: 
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-seo-tag
-  
-authors:
-    sal:
-      name:           Sal
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar1.jpg
-      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
-      email:          wowthemesnet@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
 
-    jane:
-      name:           Jane
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
- 
-# Defaults
-defaults:
 
-  # all posts
-  - scope:
-      path: "_posts"
-    values:
-      layout: post
-      author: sal
-      avatar: /assets/images/avatar1.jpg
-      
-  # all pages
-  - scope:
-      path: "_pages"
-    values:
-      layout: page
-      
-# Syntax
+# SNS settings
+RSS: false
+weibo_username:     不是你想那个的那个意思哦
+# zhihu_username:     暂无
+github_username:    hdbdjdbm
+# facebook_username:  暂无
+# jianshu_username:   暂无
+#twitter_username:   暂无
+
+
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+plugins: [jekyll-paginate]
+
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 highlighter: rouge
+#redcarpet:
+#    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
 
-# Paginate
-paginate: 10
+
+
+# Gitalk
+gitalk:
+  enable: false    #是否开启Gitalk评论
+  clientID:                             #生成的clientID
+  clientSecret:     #生成的clientSecret
+  repo: hdbdjdbm.github.io    #仓库名称
+  owner: hdbdjdbm    #github用户名
+  admin: 
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
+
+# 统计
+
+# Analytics settings
+# Baidu Analytics
+#ba_track_id: eaff352c456ac4b5330f0711bc33b556
+# Google Analytics
+#ga_track_id: 'UA-168715943-1'            # Format: UA-xxxxxx-xx
+#ga_domain:  auto              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
-# Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+
+
+# Featured Tags
+featured-tags: true                     # 是否使用首页标签
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# Friends
+friends: [
+    {
+        title: "Nothing",
+        href: ""
+    },{
+        title: "Here",
+        href: ""
+    }
+]
