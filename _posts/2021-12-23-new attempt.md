@@ -136,6 +136,8 @@ bundle exec jekyll serve
 
 **④ 提交到github**
 
+把about,_config文件修改完成之后保存。
+
 cd到需要提交的目录下，执行：
 
 ```bash
@@ -155,6 +157,18 @@ $ git clone https://github.com/{username}/{username}.github.io.git
 ```
 
 浏览器输入自己的Github Pages地址，如果和本地预览的一样，太恭喜你啦，成功啦！
+
+
+
+### 遇到的问题(持续更新，问题总是无穷的)
+* 上传表格的时候显出不出来，参考这位网友：
+[MarkDown中的表格在jekyll的pages博客中不能正常显示](https://blog.csdn.net/sdujava2011/article/details/83692576)
+
+* 在Github页面版修改了readme文件再本地上传时候会提示错误，强制push即可。
+
+* 图片上传使用新浪微博里的链接解析不了，还是老老实实用图床把。
+
+* 公式编不出来，可以参考：[如何在基于jekyll的github上发布的博客中支持MathJax(LaTex数学公式)](https://www.zhihu.com/question/62114522?sort=created)
 
 
 ### To-do List
