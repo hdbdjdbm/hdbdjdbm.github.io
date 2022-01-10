@@ -2,13 +2,14 @@
 layout:     post
 title:      通过计量经济学模型和交叉谱方法研究因果关系
 subtitle:   通过相关关系导出因果关系
-date:       2022-01-06
+date:       2022-01-05
 author:     hdbdjdbm
 header-img: img/post-bg-coffee.jpeg
 catalog: true
 tags:
-    - python
+    - 6980
 ---
+
 
 ## Investigating Causal Relations by Econometric Models and Cross-spectral Methods(通过计量经济学模型和交叉谱方法研究因果关系)
 
