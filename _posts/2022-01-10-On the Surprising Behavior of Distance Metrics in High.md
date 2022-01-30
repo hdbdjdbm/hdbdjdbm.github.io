@@ -7,7 +7,7 @@ author:     hdbdjdbm
 header-img: img/post-bg-coffee.jpeg
 catalog: true
 tags:
-    - 高维空间里的机器学习
+    - 机器学习
 ---
 
 ## 前言
