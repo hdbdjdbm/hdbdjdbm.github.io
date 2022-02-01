@@ -18,7 +18,7 @@ sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in bot
 
 # SNS settings
 RSS: false
-weibo_username:     不是你想那个的那个意思哦
+weibo_username:     新的一年少缺德
 # zhihu_username:     暂无
 github_username:    hdbdjdbm
 # facebook_username:  暂无
@@ -96,10 +96,10 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Nothing",
-        href: ""
+        title: "HaiHai",
+        href: "https://haihaiyang1.github.io/"
     },{
-        title: "Here",
+        title: "旺铺招租",
         href: ""
     }
 ]
