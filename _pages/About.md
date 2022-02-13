@@ -6,7 +6,7 @@ description: the end is always good, if it's not good, it's not the end
 
 profile:
   align: right
-  image: prof_pic.JPG
+  image: prof_pic.jpg
   address: >
     <p>Email: yfengbf@connect.ust.hk</p>
 #    <p>Address: 4381, The Hong Kong University of Science and Technology, Hong Kong</p>
