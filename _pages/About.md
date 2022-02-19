@@ -16,13 +16,13 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Msc student in data-driven modeling program at [The Hong Kong University of Science and Technology](https://hkust.edu.hk).
+I am a MSc student in data-driven modeling program at [The Hong Kong University of Science and Technology](https://hkust.edu.hk).
 
 
 ## Education
 
-- Msc The Hong Kong University of Science and Technology (2021)
-- Bsc The university of science and technology(Beijing), Mathematics (2017)
+- MSc The Hong Kong University of Science and Technology (2021)
+- BSc The University of Science and Technology(Beijing), Mathematics (2017)
 
 
 
