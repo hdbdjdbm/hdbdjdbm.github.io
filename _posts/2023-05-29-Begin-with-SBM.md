@@ -11,6 +11,17 @@ tags:
 ---
 
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
 
 ![frmaework](https://pic.imgdb.cn/item/64757982f024cca1730ba0d5.jpg)
@@ -270,9 +281,9 @@ We mainly have two ways to do the inference. The first one is sampling from the 
 --todo
 
 ## Reference
-[1] Bayesian Model Selection of Stochastic Block Models
-[2] Entropy of stochastic blockmodel ensembles
-[3] Compressing network populations with modal networks reveals structural diversity
-[4] Implicit models, latent compression, intrinsic biases, and cheap lunches in community detection
-[5] Bayesian Model Selection of Stochastic Block Models
+[1] Bayesian Model Selection of Stochastic Block Models\
+[2] Entropy of stochastic blockmodel ensembles\
+[3] Compressing network populations with modal networks reveals structural diversity\
+[4] Implicit models, latent compression, intrinsic biases, and cheap lunches in community detection\
+[5] Bayesian Model Selection of Stochastic Block Models\
 [6] A review of stochastic block models and extensions for graph clustering
