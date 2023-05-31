@@ -77,7 +77,7 @@ SBM is a stochastic block model for short. Stochastic means**Stochastic equivale
 
 Firstly, we denote some symbols.
 
-Consider a graph $G = (\mathcal{N},\mathcal{E})$,where $\mathcal{N}$ is the node set of size $n := \vert \mathcal{N}\vert $ and $\mathcal{E}$ is the edge list of size $M := \vert \mathcal{E}\vert $. Dyad is a pair of nodes. $Y$ denote the $n$ x $n$ adjacency matrix. If node $p$ and node $q$ have an edge between them, then $Y_{pq} = Y_{qp} = 1$. $K$ means the number of groups on the network. $Z_p$ is a $K$-vector of that all elements are 0 except exactly one takes the value 1 that represents the group mode $p$ belongs to($K$ x 1 vector). $Z:=(Z_1 Z_2 ... Z_n)^T$ ia a $n$ x $K$ matrix. $Z_{pi}$ indicates wether the nodes $p$ belong to $i$ group or not. $N$ is the $K$ x 1 vector that $N_i$ indicates the number of nodes in $i$ group. $E$ is a $K$ x $K$ matrix, $E_{ij}$ represents the number of edges between group $i$ and group $j$. $C$ is a $K$ x $K$ matrix and $C_{ij}$ represents the probability of occurrence of an edge between a node in group $i$ and a node in group $j$.
+Consider a graph $G = (\mathcal{N},\mathcal{E})$,where $\mathcal{N}$ is the node set of size $n := \vert \mathcal{N}\vert$ and $\mathcal{E}$ is the edge list of size $M := \vert \mathcal{E}\vert$. Dyad is a pair of nodes. $Y$ denote the $n$ x $n$ adjacency matrix. If node $p$ and node $q$ have an edge between them, then $Y_{pq} = Y_{qp} = 1$. $K$ means the number of groups on the network. $Z_p$ is a $K$-vector of that all elements are 0 except exactly one takes the value 1 that represents the group mode $p$ belongs to($K$ x 1 vector). $Z:=(Z_1 Z_2 ... Z_n)^T$ ia a $n$ x $K$ matrix. $Z_{pi}$ indicates wether the nodes $p$ belong to $i$ group or not. $N$ is the $K$ x 1 vector that $N_i$ indicates the number of nodes in $i$ group. $E$ is a $K$ x $K$ matrix, $E_{ij}$ represents the number of edges between group $i$ and group $j$. $C$ is a $K$ x $K$ matrix and $C_{ij}$ represents the probability of occurrence of an edge between a node in group $i$ and a node in group $j$.
 
 $Y_{pq}$ follows the with success probability $Z_p^TCZ_q$. The total number of edges between any two blocks $i$ and $j$ is a Binomial distributed random variable with a mean equal to the product of $C_{ij}$ and the number of dyads available(in binomial distribution the expectation is $np$).
 
@@ -220,7 +220,7 @@ From the frequency aspect, we may choose the second one, and use the maximum lik
 but from the Bayesian aspect, 
 
 $$ 
-Pr(M_i\vert D) = \frac{Pr(D\vert M_i)Pr(M_i)}{\sum_iPr(D\vert M_i)Pr(M_i)} 
+Pr(M_i\vert D) = \frac{Pr(D\vert M_i)Pr(M_i)}{\sum_i Pr(D\vert M_i)Pr(M_i)} 
 $$
 
 $Pr(M_i)$ is prior distribution of model, $Pr(D\vert M_i)$ is the evidence. 
@@ -264,7 +264,7 @@ $$
 BIC(M_i) = -2\ln P(Y\vert M_i,\hat\prod_i) + \vert \prod_i\vert \ln(n) 
 $$
 
-where $\vert\prod_i\vert$ is the degree of freedom of the model $M_i$ with a parameter set $\vert\prod_i\vert$ , and $n$ is number of i.i.d. samples in the data.
+where $\vert \prod_i \vert$ is the degree of freedom of the model $M_i$ with a parameter set $\vert \prod_i \vert$ , and $n$ is number of i.i.d. samples in the data.
 
 ### minimum description length  
 --todo
