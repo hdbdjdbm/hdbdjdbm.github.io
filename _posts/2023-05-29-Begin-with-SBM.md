@@ -77,7 +77,7 @@ SBM is a stochastic block model for short. Stochastic means**Stochastic equivale
 
 Firstly, we denote some symbols.
 
-Consider a graph $G = (\mathcal{N},\mathcal{E})$,where $\mathcal{N}$ is the node set of size $n := |\mathcal{N}|$ and $\mathcal{E}$ is the edge list of size $M := |\mathcal{E}|$. Dyad is a pair of nodes. $Y$ denote the $n$ x $n$ adjacency matrix. If node $p$ and node $q$ have an edge between them, then $Y_{pq} = Y_{qp} = 1$. $K$ means the number of groups on the network. $Z_p$ is a $K$-vector of that all elements are 0 except exactly one takes the value 1 that represents the group mode $p$ belongs to($K$ x 1 vector). $Z:=(Z_1 Z_2 ... Z_n)^T$ ia a $n$ x $K$ matrix. $Z_{pi}$ indicates wether the nodes $p$ belong to $i$ group or not. $N$ is the $K$ x 1 vector that $N_i$ indicates the number of nodes in $i$ group. $E$ is a $K$ x $K$ matrix, $E_{ij}$ represents the number of edges between group $i$ and group $j$. $C$ is a $K$ x $K$ matrix and $C_{ij}$ represents the probability of occurrence of an edge between a node in group $i$ and a node in group $j$.
+Consider a graph $G = (\mathcal{N},\mathcal{E})$,where $\mathcal{N}$ is the node set of size $n := \vert \mathcal{N}\vert $ and $\mathcal{E}$ is the edge list of size $M := \vert \mathcal{E}\vert $. Dyad is a pair of nodes. $Y$ denote the $n$ x $n$ adjacency matrix. If node $p$ and node $q$ have an edge between them, then $Y_{pq} = Y_{qp} = 1$. $K$ means the number of groups on the network. $Z_p$ is a $K$-vector of that all elements are 0 except exactly one takes the value 1 that represents the group mode $p$ belongs to($K$ x 1 vector). $Z:=(Z_1 Z_2 ... Z_n)^T$ ia a $n$ x $K$ matrix. $Z_{pi}$ indicates wether the nodes $p$ belong to $i$ group or not. $N$ is the $K$ x 1 vector that $N_i$ indicates the number of nodes in $i$ group. $E$ is a $K$ x $K$ matrix, $E_{ij}$ represents the number of edges between group $i$ and group $j$. $C$ is a $K$ x $K$ matrix and $C_{ij}$ represents the probability of occurrence of an edge between a node in group $i$ and a node in group $j$.
 
 $Y_{pq}$ follows the with success probability $Z_p^TCZ_q$. The total number of edges between any two blocks $i$ and $j$ is a Binomial distributed random variable with a mean equal to the product of $C_{ij}$ and the number of dyads available(in binomial distribution the expectation is $np$).
 
@@ -86,14 +86,14 @@ Now we want to construct our model, do not forget our purpose: we want to have t
 So given $Z$ and $C$, the likelihood can be written as
 
 $$ 
-\pi(Y|Z,C) = \prod_{p<q}^n \pi(Y_{pq}|Z,C) 
+\pi(Y\vert Z,C) = \prod_{p<q}^n \pi(Y_{pq}\vert Z,C) 
 = \prod_{p<q}^{n}[(Z_p^TCZ_q)^{Y_{pq}}(1-Z_p^TCZ_q)^{(1-Y_{pq})}] \tag{1} 
 $$
 
 In a real-world situation, usually, Z and C are unknown, so assumptions have to be made before modeling and inference. We assume that $K$ x 1 vector, $\theta = (\theta_1 ... \theta_k)$ and $\sum_{i=1}^K\theta_i = 1$, and $Pr(Z_{pi} = 1) = \theta_i$. Then the latent group $Z_p$ follows the multinomial distribution with probabilities $\theta$, which means
 
 $$ 
-\pi(Z|\theta) = \prod_{p=1}^nZ_p^T\theta = \prod_{p=1}^n\theta^TZ_p = \prod_{i=1}^K\theta_i^{N_i} 
+\pi(Z\vert \theta) = \prod_{p=1}^nZ_p^T\theta = \prod_{p=1}^n\theta^TZ_p = \prod_{i=1}^K\theta_i^{N_i} 
 $$
 
   
@@ -115,7 +115,7 @@ The density of $Y_{pq}$ is
   
 
 $$ 
-\pi(Y_{pq}|Z,C) = (Y_{pq}!)^{-1}exp(-Z_p^TCZ_q)(Z_p^TCZ_q)^{Y_{pq}} 
+\pi(Y_{pq}\vert Z,C) = (Y_{pq}!)^{-1}exp(-Z_p^TCZ_q)(Z_p^TCZ_q)^{Y_{pq}} 
 $$ 
 
 here, we put the Poisson distribution: 
@@ -131,7 +131,7 @@ But this kind of model still has a problem, is any node in the same community si
 constrained to $\sum_{p=1}^n \phi_p 1{Z_{pi}= 1} = 1$ for every group $i$, so that the expected number of edges for the dyad $(p, q)$ is now $\phi_p\phi_qZ_p^TCZ_q$ . The density of $Y_{pq}$ becomes
 
 $$ 
-\pi(Y_{pq}|Z,C,\phi) = (Y_{pq}!)^{-1}exp(-\phi_p\phi_qZ_p^TCZ_q)(\phi_p\phi_qZ_p^TCZ_q)^{Y_{pq}}
+\pi(Y_{pq}\vert Z,C,\phi) = (Y_{pq}!)^{-1}exp(-\phi_p\phi_qZ_p^TCZ_q)(\phi_p\phi_qZ_p^TCZ_q)^{Y_{pq}}
 $$ 
 
 The parameters $\phi_p$ and $C_{ij}$ have natural interpretations as their maximum likelihood estimates (MLEs) are the ratio of $p$’s degree to the sum of degrees in $p$’s group, and the total number of edges between groups $i$ and $j$, respectively.
@@ -139,11 +139,11 @@ The parameters $\phi_p$ and $C_{ij}$ have natural interpretations as their maxim
 Now let's go back to equation (2), we assume that $\theta$ arises from Dirichlet($(α1K)$ distribution, of which the parameter $\alpha$ comes from a $Gamma(a,b)$ prior.
 
 $$ 
-\pi(Y,Z|\alpha,\beta,\gamma) = \pi(Y|Z,\beta,\gamma) \times \pi(Z,\alpha) 
+\pi(Y,Z\vert \alpha,\beta,\gamma) = \pi(Y\vert Z,\beta,\gamma) \times \pi(Z,\alpha) 
 $$ 
 
 $$ 
-= \int\pi(Y|Z,C)\pi(C|\beta,\gamma)dC \times \int\pi(Z|\theta)\pi(\theta|\gamma)d\theta 
+= \int\pi(Y\vert Z,C)\pi(C\vert \beta,\gamma)dC \times \int\pi(Z\vert \theta)\pi(\theta\vert \gamma)d\theta 
 $$ 
 
 ### DC-SBM
@@ -181,16 +181,16 @@ When we generate an Erd˝os-R´enyi random graph where each possible edge can oc
 As we mentioned above, we already have the forward path, the question is, how we fit our model into data. On the one hand, we can use the likelihood we deduce, using the EM algorithm to get the parameter. But the problem is, how to avoid the fluctuation we mentioned above, and how to use statistical evidence to think probabilistically. Naturally, we think of the Bayesian formula: 
 
 $$ 
-P(b|A) = \frac{P(A|b)P(b)}{P(A)} 
+P(b\vert A) = \frac{P(A\vert b)P(b)}{P(A)} 
 $$
 
 In a Bayesian situation, $b$ indicates the partition of the network, and $A$ indicates the graph.
 
-$P(A|b)$ is the generating probability of the SBM, $P(b)$ can be seen as the prior of the partition. $P(A) = \sum_b P(A|b)P(b)$ is the evidence, and $p(b|A)$ called the posterior. So if we want to combine the statistical evidence, we need to solve these three equations one by one.
+$P(A\vert b)$ is the generating probability of the SBM, $P(b)$ can be seen as the prior of the partition. $P(A) = \sum_b P(A\vert b)P(b)$ is the evidence, and $p(b\vert A)$ called the posterior. So if we want to combine the statistical evidence, we need to solve these three equations one by one.
 
-### The equation of $P(A|b)$
+### The equation of $P(A\vert b)$
 
-$P(A|b)$ is what we called likelihood, we also deduce it in the first section. But here, we want to deduce it from the entropy aspect.
+$P(A\vert b)$ is what we called likelihood, we also deduce it in the first section. But here, we want to deduce it from the entropy aspect.
 
 ### The equation of $P(b)$
 
@@ -211,7 +211,7 @@ let's start with a simple example of rolling the coin, suppose we throw the coin
 Suppose we have two models:
 
 $M_1$: the probability coin head is $0.5$ 
-$M_2$: the probability coin head is $\theta \in (0,1)$ , the the prior of $\theta$ is uniform distribution $Pr(\theta|M_2) = Uniform[0,1]$
+$M_2$: the probability coin head is $\theta \in (0,1)$ , the the prior of $\theta$ is uniform distribution $Pr(\theta\vert M_2) = Uniform[0,1]$
 
 Which model should you select?
 
@@ -220,39 +220,39 @@ From the frequency aspect, we may choose the second one, and use the maximum lik
 but from the Bayesian aspect, 
 
 $$ 
-Pr(M_i|D) = \frac{Pr(D|M_i)Pr(M_i)}{\sum_iPr(D|M_i)Pr(M_i)} 
+Pr(M_i\vert D) = \frac{Pr(D\vert M_i)Pr(M_i)}{\sum_iPr(D\vert M_i)Pr(M_i)} 
 $$
 
-$Pr(M_i)$ is prior distribution of model, $Pr(D|M_i)$ is the evidence. 
+$Pr(M_i)$ is prior distribution of model, $Pr(D\vert M_i)$ is the evidence. 
 
 In our example, we have assumed a uniform prior of models, $Pr(M_1) = Pr(M_2) = 0.5$, let's compare the posterior of two models:
 
 $$ 
-\frac{Pr(M_1|D)}{Pr(M_2|D)} = \frac{Pr(D|M_1)Pr(M_1)}{Pr(D|M_2)Pr(M_2)} 
+\frac{Pr(M_1\vert D)}{Pr(M_2\vert D)} = \frac{Pr(D\vert M_1)Pr(M_1)}{Pr(D\vert M_2)Pr(M_2)} 
 $$ 
 
 Where 
 $$ 
-Pr(D|M_1) = Pr(x,n,0.5) = Binomail(200,115,0.5) = 0.00595 
+Pr(D\vert M_1) = Pr(x,n,0.5) = Binomail(200,115,0.5) = 0.00595 
 $$ 
 
 And 
 
 $$ 
 \begin{aligned} 
-Pr(D|M_2) = Pr(x|n,M_2) = \int Pr(x|n,\theta,M_2)Pr(\theta|M_2)d\theta =\int_0^1 \tbinom{200}{115}\theta^{115}(1-\theta)^{200-115} = 0.0049 
+Pr(D\vert M_2) = Pr(x\vert n,M_2) = \int Pr(x\vert n,\theta,M_2)Pr(\theta\vert M_2)d\theta =\int_0^1 \tbinom{200}{115}\theta^{115}(1-\theta)^{200-115} = 0.0049 
 \end{aligned} 
 $$ 
 
 So the 
 
 $$ 
-\frac{Pr(M_1|D)}{Pr(M_2|D)} = 1.2 
+\frac{Pr(M_1\vert D)}{Pr(M_2\vert D)} = 1.2 
 $$ 
 
 This means under our Bayesian selection frame we prefer the $M_1$ model.The reason is Bayesian model selection prefers an easier model than the complex model, and it's consistent(一致性) with Occam's razor.
 
-In our situation,$M_1$ can only explain the dataset which half head, however, $M_2$ can explain almost every kind of dataset, but its trade-off is for a dataset that has half head, the prior will decrease. But in our case, the prior we assume the prior is the same.
+In our situation, $M_1$ can only explain the dataset which half head, however, $M_2$ can explain almost every kind of dataset, but its trade-off is for a dataset that has half head, the prior will decrease. But in our case, the prior we assume the prior is the same.
 
 In[5], the author deduces the formula of the Bayesian model selection method. Here we introduce it:
 
@@ -261,10 +261,10 @@ In[5], the author deduces the formula of the Bayesian model selection method. He
 In the Bayesian model selection, every time we can only compare the two models. we want to derive the formula that when we face different models we can get the value and compare them. Then we get the Bayesian information criteria.
   
 $$ 
-BIC(M_i) = -2\ln P(Y|M_i,\hat\prod_i) + |\prod_i|\ln(n) 
+BIC(M_i) = -2\ln P(Y\vert M_i,\hat\prod_i) + \vert \prod_i\vert \ln(n) 
 $$
 
-where $|\prod_i|$ is the degree of freedom of the model $M_i$ with a parameter set $|\prod_i|$ , and $n$ is number of i.i.d. samples in the data.
+where $\vert\prod_i\vert$ is the degree of freedom of the model $M_i$ with a parameter set $\vert\prod_i\vert$ , and $n$ is number of i.i.d. samples in the data.
 
 ### minimum description length  
 --todo
